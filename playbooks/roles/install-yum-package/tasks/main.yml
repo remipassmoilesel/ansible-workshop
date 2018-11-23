@@ -1,13 +1,21 @@
 
 # Installer un package avec yum
-- name: "Install postgresql"
+- name: "Install a single package"
   yum:
-    name: postgresql
+    name: epel-release    # Epel-release est un repository Centos contenant plein de super packages
     state: installed
 
-# Démarrer (ou redémarrer) un service systemd
-- name: "Enable systemd service for postgresql"
-  systemd:
-    name: postgresql
-    state: started
-    enabled: yes
+# Installer plusieurs packages avec yum, méthode 1
+- name: "Install several packages, method 1"
+  yum:
+    name: [curl, wget]
+    state: installed
+
+# Installer plusieurs packages avec yum, méthode 2, peut être utile pour itérer d'autres modules
+- name: "Install several packages, method 2"
+  yum:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+  - curl
+  - python-pip

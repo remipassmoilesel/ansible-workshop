@@ -1,14 +1,14 @@
 
 ---
-- hosts: databases          # Les actions ci dessous ne seront appliquées qu'aux hôtes du groupe base de données
+- hosts: databases              # Les actions ci dessous ne seront appliquées qu'aux hôtes du groupe base de données
 
   vars_files:
-    - common.vars.yml       # Ici on charge un fichier de variables
+    - common_vars.yml           # Ici on charge un fichier de variables
 
   vars:
-    variable2: variable2     # Ici on défini des variables pour le playbook
+    variable2: variable2        # Ici on défini des variables pour le playbook
 
-  tasks:                    # Ici on invoque des tâches simple sans faire appel à des role.
+  pre_tasks:                    # Ici on invoque des tâches simple sans faire appel à des role.
     - name: "Check that linux distribution is Centos"
       assert:
         that:
@@ -16,5 +16,6 @@
 
   roles:
     - {name: install-yum-package,   variable3: value3,             tags: ['yum']} # Les tags permettent de n'éxécuter que certaines actions
-    - {name: modify-configuration,                                 tags: ['configuration']}
     - {name: template-configuration,                               tags: ['configuration']}
+    - {name: modify-configuration,                                 tags: ['configuration']}
+    - {name: misc-modules,                                         tags: ['configuration']}

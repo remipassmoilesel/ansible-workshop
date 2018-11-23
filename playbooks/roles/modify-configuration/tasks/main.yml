@@ -1,14 +1,14 @@
 
-- name: "Toggle feature on"
+- name: "Change one single line"
   lineinfile:                             # Ici on modifie une ligne de configuration existante
-    src: /opt/awesome-configuration.yml
+    path: /opt/awesome-configuration.conf
     regexp: "#? *FEATURE.+"               # Cette regex indique à Ansible quelle ligne on souhaite modifier. Attention: la regexp doit matcher la ligne originale ET la ligne modifiée
     line: "FEATURE=true"
 
 
-- name: insert/update "Match User" configuration block in /etc/ssh/sshd_config
-  blockinfile:                      # La même chose avec un block
-    path: /opt/awesome-configuration
+- name: "Change many lines"
+  blockinfile:                            # La même chose avec un bloc de ligne
+    path: /opt/awesome-configuration.conf
     block: |
       Hey les gros comment ça va ?
       La forme ?

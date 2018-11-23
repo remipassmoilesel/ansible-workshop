@@ -1,0 +1,41 @@
+
+# Il y a un million de module ansible disponible, par exemple:
+
+# Démarrer (ou redémarrer) un service systemd
+- name: "Enable systemd service "
+  systemd:
+    name: chronyd
+    state: started
+    enabled: yes
+
+# Créer un utilisateur
+- name: "Create user"
+  user:
+    name: june
+
+# Créer un dossier
+- name: "Create directory"
+  file:
+    path: /somewhere/over/the/rainbow
+    state: directory
+    recurse: yes
+
+# Exécuter des commandes shell ou des scripts
+- name: "Execute shell command"
+  shell: "ls -l /proc"
+  args:
+    executable: /bin/bash
+
+# Installer un paquet python
+- name: "Install Docker compose"
+  pip:
+    name: docker-compose
+    state: present
+    executable: pip
+
+# Faire des assertions, par exemple pour protéger l'environement "production"
+- name: "Check that environment is integration"
+  assert:
+    that:
+      - "'integration' != 'production'" # Ici integration devrait être une variable
+

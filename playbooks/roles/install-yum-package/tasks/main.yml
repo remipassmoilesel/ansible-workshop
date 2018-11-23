@@ -1,0 +1,13 @@
+
+# Installer un package avec yum
+- name: "Install postgresql"
+  yum:
+    name: postgresql
+    state: installed
+
+# Démarrer (ou redémarrer) un service systemd
+- name: "Enable systemd service for postgresql"
+  systemd:
+    name: postgresql
+    state: started
+    enabled: yes

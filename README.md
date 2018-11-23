@@ -20,3 +20,4 @@ Pour détruire les machines:
 
     $ vagrant destroy    
 
+

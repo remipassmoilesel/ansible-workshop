@@ -1,0 +1,9 @@
+
+# Ici on copie le fichier local situé dans templates/ sur la machine distante
+# Et ansible modifiera ce fichier en fonction des caratéristiques du groupe,
+# de la machine, etc
+- name: "Template configuration"
+  template:
+    src: configuration.conf   # peut être un chemin local (dossier templates), absolu, relatif au playbook ( {{ playbook_path }} ) ou à l'inventaire ( {{ inventory_path }} )
+    dest: /opt/awesome-configuration.conf
+

@@ -2,6 +2,18 @@
 
 Ce dépôt permet de s'exercer avec Ansible sur des machines locales ou en ligne.
 
+## Méthodologie
+
+Avant toutes chose, il faut s'assurer de pouvoir se connecter aux machines en SSH:
+
+    $ ssh root@10.0.0.5     ->  azerty
+    $ ssh root@10.0.0.6     ->  azerty
+
+Ensuite lancer les playbooks:
+
+    $ cd ansible-playground
+    $ ansible-playbook -i inventory/inventory.cfg playbooks/example1.yml
+    
 
 ## Machines locales
 

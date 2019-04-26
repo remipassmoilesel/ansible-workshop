@@ -51,15 +51,21 @@ N'éxécuter que les tâches taggées Yum ou Configuration:
 ## Erreurs courantes
     
 ### Received disconnect from 10.0.0.5 port 22:2: Too many authentication failures    
+
+En cas d'erreur:
+
+    Received disconnect from 10.0.0.5 port 22:2: Too many authentication failures
+    Disconnected from 10.0.0.5 port 22
+    
     
 Vous devriez configurer votre client SSH dans le fichier ~/.ssh/config
 
     Host 10.0.0.*
-        IdentityFile ~/.ssh/agysoft/id_rsa
+        IdentityFile ~/.ssh/id_rsa
         User root
+
 
 Vous pouvez aussi utiliser cette commande:    
 
     $ 🐼 ssh -o pubkeyauthentication=no root@10.0.0.5 
-    Received disconnect from 10.0.0.5 port 22:2: Too many authentication failures
-    Disconnected from 10.0.0.5 port 22
+

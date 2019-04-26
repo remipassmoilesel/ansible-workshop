@@ -1,4 +1,4 @@
-# Ansible playground
+# Atelier Ansible
 
 Ce dépôt permet de s'exercer avec Ansible sur des machines locales ou en ligne.
 
